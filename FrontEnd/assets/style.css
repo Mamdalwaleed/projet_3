@@ -169,20 +169,40 @@ margin: auto;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px ;
+
+/* Conteneur des boutons */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
 }
 
-footer nav ul {
-	display: flex;
-	justify-content: flex-end;
-	margin: 2em
+/* Style général des boutons */
+.categories button {
+    background-color: #1d6154;   /* couleur principale de la maquette */
+    color: #ffffff;              /* texte blanc */
+    border: none;                /* pas de bordure */
+    border-radius: 30px;         /* coins arrondis style pill */
+    padding: 10px 25px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+.categories button:hover {
+    background-color: #ffffff;    /* fond blanc */
+    color: #1d6154;               /* texte couleur principale */
+    border: 2px solid #1d6154;    /* bordure */
+}
+
+/* Bouton actif sélectionné */
+.categories button.active {
+    background-color: #ffffff;
+    color: #1d6154;
+    border: 2px solid #1d6154;
 }
 
