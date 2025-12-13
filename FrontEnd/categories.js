@@ -4,15 +4,15 @@ async function displayCategories() {
     const gallery = document.querySelector(".gallery");
 
     const categories = await (await fetch("http://localhost:5678/api/categories")).json();
-    const works = await (await fetch("http://localhost:5678/api/works")).json();
+    works = await (await fetch("http://localhost:5678/api/works")).json();
 
-    // Ajouter le bouton "Tous"
+    // Bouton Tous
     const allBtn = document.createElement("button");
     allBtn.textContent = "Tous";
     allBtn.dataset.id = "all";
     container.appendChild(allBtn);
 
-    // Boutons par catégorie
+    // Boutons catégories
     categories.forEach(cat => {
         const btn = document.createElement("button");
         btn.textContent = cat.name;
@@ -20,18 +20,45 @@ async function displayCategories() {
         container.appendChild(btn);
     });
 
-    // Fonction pour afficher les works
-    function showWorks(filteredWorks) {
-        gallery.innerHTML = "";
-        filteredWorks.forEach(work => {
-            const fig = document.createElement("figure");
-            fig.innerHTML = `<img src="${work.imageUrl}" alt="${work.title}"><figcaption>${work.title}</figcaption>`;
-            gallery.appendChild(fig);
-        });
-    }
-
     // Affichage initial
     showWorks(works);
 }
-// Lancer la fonction pour afficher les catégories et boutons
+
+// Fonction d'affichage SANS HTML dans JS
+function showWorks(list) {
+    const gallery = document.querySelector(".gallery");
+    gallery.innerHTML = "";
+
+    list.forEach(work => {
+        const figure = document.createElement("figure");
+
+        const img = document.createElement("img");
+        img.src = work.imageUrl;
+        img.alt = work.title;
+
+        const caption = document.createElement("figcaption");
+        caption.textContent = work.title;
+
+        figure.appendChild(img);
+        figure.appendChild(caption);
+        gallery.appendChild(figure);
+    });
+}
+
 displayCategories();
+
+// TRI AVEC FOREACH (SANS HTML)
+document.querySelector(".categories").addEventListener("click", e => {
+    if (e.target.tagName !== "BUTTON") return;
+
+    const id = e.target.dataset.id;
+
+    const filtered = [];
+    works.forEach(work => {
+        if (id === "all" || work.categoryId == id) {
+            filtered.push(work);
+        }
+    });
+
+    showWorks(filtered);
+});
