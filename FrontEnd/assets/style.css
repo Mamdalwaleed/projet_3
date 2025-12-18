@@ -173,10 +173,11 @@ margin: auto;
 /* Conteneur des boutons */
 .categories {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center; /* centre horizontalement */
     gap: 16px;
     margin-bottom: 40px;
 }
+
 
 /* Style général des boutons */
 .categories button {
@@ -211,6 +212,7 @@ margin: auto;
     width: 380px;
     margin: 150px auto;
     text-align: center;
+
 }
 
 #login h2 {
@@ -220,7 +222,7 @@ margin: auto;
 #login form {
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
 }
 
 #login label {
