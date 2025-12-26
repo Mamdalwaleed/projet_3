@@ -20,12 +20,18 @@
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li>login</li>
+            <li id="login-link">login</li>
+            <li id="logout" style="display: none;">Logout</li>
+
+
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
 <main>
+
+
+
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
@@ -38,54 +44,15 @@
 		</article>
 	</section>
 	<section id="portfolio">
+		<div class="portfolio-header">
 		<h2>Mes Projets</h2>
+		<button id="edit-btn" style="display: none;">Modifier</button>
+		</div>
+
 		<div class="categories"></div>
 		<div class="gallery">
-			<!-- <figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure> -->
 		</div>
+
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
@@ -100,10 +67,10 @@
 			<input type="submit" value="Envoyer">
 		</form>
 	</section>
-	<div class="categories"></div>
-    <div class="gallery"></div>
+
     
-    <script src="works_categories.js"></script>
+    <script src="works_categories.js" defer></script>
+
 
 </main>
 
@@ -114,5 +81,48 @@
 		</ul>
 	</nav>
 </footer>
+	     		<!-- MODALE -->
+	<div id="modal" class="modal-overlay" style="display: none;">
+	<div class="modal-content">
+
+		<!-- Header -->
+		<div class="modal-header">
+		<span id="back-arrow" style="display: none;">←</span>
+		<span id="close-modal">✕</span>
+		</div>
+
+		<!-- ===== ZONE GALERIE ===== -->
+		<div id="modal-gallery">
+		<h2>Galerie photo</h2>
+
+		<div class="modal-gallery">
+			<!-- Images ajoutées dynamiquement en JS -->
+		</div>
+
+		<button id="add-photo-btn">Ajouter une photo</button>
+		</div>
+
+		<!-- ===== FORMULAIRE DANS LA MODALE ===== -->
+		<div id="modal-form" style="display: none;">
+		 <h2>Ajout photo</h2>
+		 <form>
+			<label for="photo">Photo</label>
+			<input type="file" id="photo" name="photo" title="Choisissez une photo" autocomplete="off" />
+
+			<label for="title">Titre</label>
+			<input type="text" id="title" name="title" placeholder="Titre" title="Titre de la photo" autocomplete="off" />
+
+			<label for="category">Catégorie</label>
+			<select id="category" name="category" title="Choisir une catégorie" autocomplete="off">
+			<option value="">Sélectionnez une catégorie</option>
+			</select>
+
+			<button type="submit">Valider</button>
+		 </form>
+		</div>
+
+	</div>
+	</div>
+
 </body>
 </html>

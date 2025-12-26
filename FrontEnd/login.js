@@ -17,7 +17,7 @@ form.addEventListener("submit", async (event) => {
 
         // Stockage du token
         localStorage.setItem("token", data.token);
-        localStorage.getItem("token", data.token);
+        
 
         // Redirection vers l’accueil
         window.location.href = "index.html";
