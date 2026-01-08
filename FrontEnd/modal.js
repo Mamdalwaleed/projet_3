@@ -1,3 +1,6 @@
+// Récupération de l'utilisateur connecté
+const connectedUser = localStorage.getItem("token");
+
 const modal = document.getElementById("modalOverlay");
 const openBtn = document.getElementById("openModal");
 const closeBtn = document.getElementById("closeModal");
@@ -6,7 +9,24 @@ const backArrow = document.getElementById("backArrow");
 const deletePage = document.getElementById("deletePage");
 const addPage = document.getElementById("addPage");
 const openAddPageBtn = document.getElementById("openAddPage");
+const loginLink = document.getElementById("login-link");
+const logoutLink = document.getElementById("logout");
 
+if (!connectedUser) {
+  openBtn.style.display = "none";
+  loginLink.style.display = "block";
+  logoutLink.style.display = "none";
+} else {
+  openBtn.style.display = "block";
+  loginLink.style.display = "none";
+  logoutLink.style.display = "block";
+}
+
+// ---------------------- DECONNEXION ----------------------
+logoutLink.addEventListener("click", () => {
+  localStorage.removeItem("token");
+  window.location.href = "index.html";
+});
 // ---------------------- OUVRIR ----------------------
 openBtn.addEventListener("click", () => {
   modal.style.display = "flex";
