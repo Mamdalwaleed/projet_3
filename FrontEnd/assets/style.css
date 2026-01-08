@@ -253,6 +253,30 @@ margin: auto;
     text-decoration: underline;
     font-size: 14px;
 }
+.portfolio-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+}
+
+#portfolio .portfolio-title h2 {
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.portfolio-title button {
+	background-color: #1d6154;
+	color: white;
+	border: none;
+	border-radius: 60px;
+	padding: 10px 25px;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 600;
+	font-size: 14px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
 
 
 
