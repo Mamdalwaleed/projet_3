@@ -1,0 +1,147 @@
+/* ================= MODALE OVERLAY ================= */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= CONTENU MODALE ================= */
+.modal-content {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 630px;
+  max-height: 90vh;
+  padding: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+/* ================= HEADER ================= */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button,
+.back-arrow {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ================= TITRES ================= */
+.modal-content h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* ================= PAGE 1 : GALERIE ================= */
+#deletePage {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Galerie scrollable */
+.modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 30px 0;
+  overflow-y: auto;
+  max-height: 350px;
+  padding-right: 5px;
+}
+
+
+/* Image */
+.modal-gallery img {
+  width: 77px;
+  height: 102px;
+  object-fit: cover;
+}
+
+
+/* Conteneur image */
+.modal-gallery figure {
+  position: relative;
+  margin: 0;
+}
+
+/* Bouton poubelle */
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 17px;
+  height: 17px;
+  background-color: white;   /* ✅ Fond blanc */
+  border: 1px solid #ccc;    /* optionnel : petit contour gris */
+  border-radius: 3px;        /* optionnel : angles arrondis */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn img {
+  width: 9px;
+  height: 9px;
+}
+
+/* ================= BOUTON AJOUT ================= */
+.modal-btn {
+  margin: 30px auto 0;
+  padding: 10px 30px;
+  border-radius: 60px;
+  border: none;
+  background-color: #1D6154;
+  color: white;
+  cursor: pointer;
+}
+
+/* ================= PAGE 2 : FORMULAIRE ================= */
+#addPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-form input,
+.modal-form select {
+  height: 40px;
+  padding: 5px;
+}
+.modal-separator {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #B3B3B3;
+  margin: 20px 0;
+}
+.modal-btn {
+  background-color: #1D6154;
+  color: white;
+  border-radius: 60px;
+  padding: 10px 40px;
+  font-size: 14px;
+  border: none;
+  margin: 0 auto;
+}
+
+.modal-gallery figure.selected {
+  outline: 3px solid red;
+}
+

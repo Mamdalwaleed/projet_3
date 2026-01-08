@@ -28,8 +28,8 @@ async function displayCategories() {
 
 
 // Fonction d'affichage SANS HTML dans JS
-function showWorks(list) {
-  const gallery = document.querySelector(".gallery");
+function showWorks(list, containerSelector = ".gallery") {
+  const gallery = document.querySelector(containerSelector);
   gallery.innerHTML = "";
 
   list.forEach((work) => {
@@ -102,44 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+  })
 
-    // ===== MODALE =====
-    const modal = document.getElementById("modal");
-    const closeModal = document.getElementById("close-modal");
-    const backArrow = document.getElementById("back-arrow");
-    const galleryZone = document.getElementById("modal-gallery");
-    const formZone = document.getElementById("modal-form");
-    const addPhotoBtn = document.getElementById("add-photo-btn");
 
-    // --- OUVRIR LA MODALE ---
-    editBtn.addEventListener("click", () => {
-      modal.style.display = "flex";
-      galleryZone.style.display = "block";
-      formZone.style.display = "none";
-      backArrow.style.display = "none";
-    });
 
-    // --- FERMER ---
-    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
 
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) modal.style.display = "none";
-    });
 
-    // --- AJOUT PHOTO ---
-    addPhotoBtn.addEventListener("click", () => {
-      galleryZone.style.display = "none";
-      formZone.style.display = "block";
-      backArrow.style.display = "inline";
-    });
 
-    // --- RETOUR ---
-    backArrow.addEventListener("click", () => {
-      galleryZone.style.display = "block";
-      formZone.style.display = "none";
-      backArrow.style.display = "none";
-    });
 
-});  
+
