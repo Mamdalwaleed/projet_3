@@ -53,9 +53,11 @@ async function displayWorksInModal() {
   const modalGallery = document.querySelector(".modal-gallery");
   modalGallery.innerHTML = "";
 
-  const works = await fetch("http://localhost:5678/api/works").then(res => res.json());
+  const works = await fetch("http://localhost:5678/api/works").then((res) =>
+    res.json()
+  );
 
-  works.forEach(work => {
+  works.forEach((work) => {
     const figure = document.createElement("figure");
     figure.dataset.id = work.id;
 
@@ -80,52 +82,53 @@ async function deleteWork(id) {
 
   await fetch(`http://localhost:5678/api/works/${id}`, {
     method: "DELETE",
-    headers: { Authorization: `Bearer ${token}` }
+    headers: { Authorization: `Bearer ${token}` },
   });
 
   displayWorksInModal();
   displayWorks("all");
 }
-
+// TO DO:
 // ---------------------- DELETE MULTIPLE ----------------------
-const deleteAllBtn = document.getElementById("deleteAllBtn");
-const modalGallery = document.querySelector(".modal-gallery");
+// const deleteAllBtn = document.getElementById("deleteAllBtn");
+// const modalGallery = document.querySelector(".modal-gallery");
 
-modalGallery.addEventListener("click", (e) => {
-  const fig = e.target.closest("figure");
-  if (!fig) return;
-  fig.classList.toggle("selected");
-});
+// modalGallery.addEventListener("click", (e) => {
+//   const fig = e.target.closest("figure");
+//   if (!fig) return;
+//   fig.classList.toggle("selected");
+// });
 
-deleteAllBtn.addEventListener("click", async () => {
-  const selected = modalGallery.querySelectorAll("figure.selected");
-  if (selected.length === 0) return alert("Sélectionnez des images à supprimer");
+// deleteAllBtn.addEventListener("click", async () => {
+//   const selected = modalGallery.querySelectorAll("figure.selected");
+//   if (selected.length === 0) return alert("Sélectionnez des images à supprimer");
 
-  for (const fig of selected) {
-    const id = fig.dataset.id;
+//   for (const fig of selected) {
+//     const id = fig.dataset.id;
 
-    await fetch(`http://localhost:5678/api/works/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    });
+//     await fetch(`http://localhost:5678/api/works/${id}`, {
+//       method: "DELETE",
+//       headers: {
+//         Authorization: `Bearer ${localStorage.getItem("token")}`
+//       }
+//     });
 
-    fig.remove();
-  }
+//     fig.remove();
+//   }
 
-  displayWorks("all");
-});
+//   displayWorks("all");
+// });
 
 // ---------------------- REMPLIR CATEGORIES ----------------------
 async function fillCategoriesSelect() {
   const select = document.getElementById("categorySelect");
   select.innerHTML = "";
 
-  const categories = await fetch("http://localhost:5678/api/categories")
-    .then(res => res.json());
+  const categories = await fetch("http://localhost:5678/api/categories").then(
+    (res) => res.json()
+  );
 
-  categories.forEach(cat => {
+  categories.forEach((cat) => {
     const option = document.createElement("option");
     option.value = cat.id;
     option.textContent = cat.name;
@@ -152,10 +155,10 @@ addForm.addEventListener("submit", async (e) => {
   await fetch("http://localhost:5678/api/works", {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
-    body: formData
+    body: formData,
   });
 
   displayWorks("all");
+  addForm.reset();
   backArrow.click();
 });
-

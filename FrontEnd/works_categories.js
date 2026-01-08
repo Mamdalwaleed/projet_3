@@ -1,6 +1,3 @@
-
-
-
 // Récupération et affichage des catégories
 async function displayCategories() {
   const container = document.querySelector(".categories");
@@ -24,9 +21,6 @@ async function displayCategories() {
   });
 }
 
-
-
-
 // Fonction d'affichage SANS HTML dans JS
 function showWorks(list, containerSelector = ".gallery") {
   const gallery = document.querySelector(containerSelector);
@@ -48,66 +42,44 @@ function showWorks(list, containerSelector = ".gallery") {
   });
 }
 
-
-
-
 async function getworks(id) {
   const works = await (await fetch("http://localhost:5678/api/works")).json();
 
   return works.filter((work) => id === "all" || work.categoryId == id);
 }
 
-
-
-
 async function displayWorks(categoryId) {
-     const works = await getworks(categoryId);
-     showWorks(works);
-    
+  const works = await getworks(categoryId);
+  showWorks(works);
 }
 
 displayCategories();
-displayWorks("all")
+displayWorks("all");
 
 // TRI AVEC FOREACH (SANS HTML)
 document.querySelector(".categories").addEventListener("click", async (e) => {
   if (e.target.tagName !== "BUTTON") return;
-  
 
   const id = e.target.dataset.id;
 
   await displayWorks(id);
-     
 });
 
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
-    // ----- AUTHENTIFICATION -----
-    const token = localStorage.getItem("token");
-    const loginLink = document.getElementById("login-link");
-    const logoutBtn = document.getElementById("logout");
-    const editBtn = document.getElementById("edit-btn");
+  // ----- AUTHENTIFICATION -----
+  const token = localStorage.getItem("token");
+  const loginLink = document.getElementById("login-link");
+  const logoutBtn = document.getElementById("logout");
+  const editBtn = document.getElementById("edit-btn");
 
-    if (token) {
-      logoutBtn.style.display = "block";
-      editBtn.style.display = "block";
-      loginLink.style.display = "none";
-    }
+  if (token) {
+    logoutBtn.style.display = "block";
+    editBtn.style.display = "block";
+    loginLink.style.display = "none";
+  }
 
-    logoutBtn.addEventListener("click", () => {
-      localStorage.removeItem("token");
-      window.location.href = "login.html";
-    });
-
-
-  })
-
-
-
-
-
-
-
-
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
+  });
+});
