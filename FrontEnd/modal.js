@@ -141,6 +141,12 @@ const addForm = document.getElementById("addForm");
 const imageInput = document.getElementById("imageInput");
 const titleInput = document.getElementById("titleInput");
 const categorySelect = document.getElementById("categorySelect");
+const submitBtn = document.getElementById("addPageSubmitBtn");
+
+addForm.addEventListener("input", () => {
+  submitBtn.disabled =
+    !imageInput.files[0] || !titleInput.value || !categorySelect.value;
+});
 
 addForm.addEventListener("submit", async (e) => {
   e.preventDefault();
