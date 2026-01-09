@@ -277,6 +277,12 @@ margin: auto;
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
+.required {
+    color: red;
+    font-weight: bold;
+		font-size: 10px;
+		vertical-align: top;
+}
 
 
 

@@ -121,25 +121,29 @@
 				<h2>Ajout photo</h2>
 
 				<form id="addForm" class="modal-form">
-					<label>Photo</label>
-					<input type="file" id="imageInput">
 
-					<label>Titre</label>
+					<label>Photo<span class="required">*</span></label>
+					<div class="image-preview" id="imagePreview" style="display:none;">
+						<img id="previewImg">
+					</div>
+					<input type="file" id="imageInput" accept="image/*">
+					<p class="error" id="imgError"></p>
+
+					<label>Titre<span class="required">*</span></label>
 					<input type="text" id="titleInput">
+					<p class="error" id="titleError"></p>
 
-					<label>Catégorie</label>
+					<label>Catégorie<span class="required">*</span></label>
 					<select id="categorySelect"></select>
+					<p class="error" id="catError"></p>
 
-					<button type="submit" class="modal-btn" id="addPageSubmitBtn" disabled>
+
+					<button type="submit" class="modal-btn" id="addPageSubmitBtn">
 						Valider
 					</button>
 				</form>
 			</div>
-
-
-
 		</div>
-	</div>
 
 
 </body>

@@ -12,6 +12,28 @@ const openAddPageBtn = document.getElementById("openAddPage");
 const loginLink = document.getElementById("login-link");
 const logoutLink = document.getElementById("logout");
 
+const imageInput = document.getElementById("imageInput");
+const previewBox = document.getElementById("imagePreview");
+const previewImg = document.getElementById("previewImg");
+
+imageInput.addEventListener("change", () => {
+  const file = imageInput.files[0];
+
+  if (!file) {
+    previewBox.style.display = "none";
+    previewImg.src = "";
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = () => {
+    previewImg.src = reader.result;
+    previewBox.style.display = "flex";
+  };
+
+  reader.readAsDataURL(file);
+});
+
 if (!connectedUser) {
   openBtn.style.display = "none";
   loginLink.style.display = "block";
@@ -158,7 +180,6 @@ async function fillCategoriesSelect() {
 
 // ---------------------- AJOUT PHOTO ----------------------
 const addForm = document.getElementById("addForm");
-const imageInput = document.getElementById("imageInput");
 const titleInput = document.getElementById("titleInput");
 const categorySelect = document.getElementById("categorySelect");
 const submitBtn = document.getElementById("addPageSubmitBtn");
@@ -171,6 +192,34 @@ addForm.addEventListener("input", () => {
 addForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  // Reset messages
+  document.getElementById("imgError").textContent = "";
+  document.getElementById("titleError").textContent = "";
+  document.getElementById("catError").textContent = "";
+
+  let isValid = true;
+
+  if (!imageInput.files[0]) {
+    document.getElementById("imgError").textContent =
+      "Veuillez sélectionner une image.";
+    isValid = false;
+  }
+
+  if (!titleInput.value.trim()) {
+    document.getElementById("titleError").textContent =
+      "Veuillez entrer un titre.";
+    isValid = false;
+  }
+
+  if (!categorySelect.value) {
+    document.getElementById("catError").textContent =
+      "Veuillez choisir une catégorie.";
+    isValid = false;
+  }
+
+  if (!isValid) return; // ❌ stop si erreur
+
+  // ✅ Envoi à l'API car tout est OK
   const token = localStorage.getItem("token");
   const formData = new FormData();
 
