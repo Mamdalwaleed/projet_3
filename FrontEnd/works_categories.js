@@ -1,7 +1,8 @@
 const connectedUser = localStorage.getItem("token"); // Récupération de l'utilisateur connecté
 
 async function displayCategories() {
-  const container = document.querySelector(".categories"); //// On pointe la boîte qui va contenir les boutons--Comme dire “je prends cette étagère
+  //la partie ou je creer mes boutons
+  const container = document.querySelector(".categories"); // On pointe la boîte qui va contenir les boutons--Comme dire “je prends cette étagère
 
   const categories = await //attend la reponse transformé  en json
   (
@@ -73,17 +74,19 @@ document.querySelector(".categories").addEventListener("click", async (e) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   //Attendre que la page soit chargée
-
+  const editBanner = document.getElementById("editBanner");
   const token = localStorage.getItem("token"); //prend l'accès ou Prend le badge admin
   const loginLink = document.getElementById("login-link");
   const logoutBtn = document.getElementById("logout");
   const editBtn = document.getElementById("openModal");
 
   if (!token) {
+    editBanner.style.display = "none";
     editBtn.style.display = "none";
     loginLink.style.display = "block";
     logoutBtn.style.display = "none";
   } else {
+    editBanner.style.display = "block";
     editBtn.style.display = "block";
     loginLink.style.display = "none";
     logoutBtn.style.display = "block";

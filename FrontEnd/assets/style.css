@@ -283,6 +283,15 @@ margin: auto;
 		font-size: 10px;
 		vertical-align: top;
 }
+.edit-banner {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-family: Work Sans, sans-serif;
+  font-size: 14px;
+  display: none; /* cachée par défaut */
+}
 
 
 

@@ -14,15 +14,16 @@ form.addEventListener("submit", async (event) => {
   const password = document.querySelector("#password").value; //tu prends ce qu’il a écrit dans Mot de passe
 
   try {
+    //J’essaie d’envoyer ces infos au serveu
     const response = await fetch("http://localhost:5678/api/users/login", {
-      //Tu envoies au serveur
-      method: "POST", //
-      headers: { "Content-Type": "application/json" }, //
-      body: JSON.stringify({ email, password }), //Email + mot de passe
+      //Tu envoies au serveur;Va parler au serveur à cette adresse
+      method: "POST", //Je veux ENVOYER des données au serveur
+      headers: { "Content-Type": "application/json" }, //ce que je t’envoie est écrit en JSON
+      body: JSON.stringify({ email, password }), //Tu transformes l’objet JS en texte JSON lisible par le serveur,Voici l’email et le mot de passe de l’utilisateur,
     });
 
     if (!response.ok) {
-      //si le serveur dit NON
+      //Si le serveur répond NON → je crée volontairement une erreur
       throw new Error("Identifiants incorrects");
     }
 
@@ -30,6 +31,7 @@ form.addEventListener("submit", async (event) => {
     localStorage.setItem("token", data.token);
     window.location.href = "index.html";
   } catch (error) {
+    //Si n’importe quelle erreur arrive dans le try
     // 👉 MESSAGE UTILISATEUR
     alert(
       "❌ Impossible de se connecter.\n" +
