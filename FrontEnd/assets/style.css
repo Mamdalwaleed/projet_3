@@ -329,6 +329,23 @@ margin: auto;
   height: 20px;
   object-fit: contain;
 }
+/* Liens du menu en haut */
+nav a {
+  color: #000;              /* TEXTE NOIR */
+  text-decoration: none;   /* PAS DE SOULIGNEMENT */
+}
+
+/* Au survol */
+nav a:hover {
+  color: #000;             /* reste noir */
+  text-decoration: none;  /* pas de ligne */
+}
+
+/* Lien actif (si tu avais une classe .active) */
+nav .active a {
+  color: #000;
+  text-decoration: none;
+}
 
 
 
