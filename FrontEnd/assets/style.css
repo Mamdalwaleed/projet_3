@@ -292,6 +292,44 @@ margin: auto;
   font-size: 14px;
   display: none; /* cachée par défaut */
 }
+.edit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;                 /* espace icône / texte */
+  color: #C0B49D;           /* gris/beige */
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.edit-link:hover {
+  text-decoration: underline;
+}
+.portfolio-header {
+  text-align: center;       /* centre horizontalement */
+  margin-bottom: 20px;
+}
+
+.portfolio-title {
+  display: inline-flex;     /* texte + icône sur la même ligne */
+  align-items: center;      /* alignement vertical */
+  gap: 10px;                /* espace entre titre et bouton */
+  font-size: 30px;
+  font-weight: 700;
+  color: #1D6154;           /* vert pour le titre */
+}
+.modal-separator {
+  width: 50px;
+  height: 3px;
+  background-color: #C0B49D; /* couleur de séparation comme maquette */
+  margin: 10px auto 0 auto;  /* centré sous le titre */
+  border: none;
+}
+.edit-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
 
 
 

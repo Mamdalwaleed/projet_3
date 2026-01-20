@@ -19,7 +19,7 @@
 
 <body>
 	<div id="editBanner" class="edit-banner">
-		<p><span>✏️</span> Mode édition</p>
+		<p><img src="./assets/images/crayon.png" alt="Modifier" class="edit-icon"> Mode édition</p>
 	</div>
 
 	<header>
@@ -54,10 +54,13 @@
 		</section>
 		<section id="portfolio">
 			<div class="portfolio-header">
-				<span class="portfolio-title">
-					<h2>Mes Projets</h2>
-					<button id="openModal">Modifier</button>
-				</span>
+				<h2 class="portfolio-title">
+					Mes Projets
+					<span id="openModal" class="edit-link">
+						<img src="./assets/images/crayon.png" alt="Modifier" class="edit-icon">
+						Modifier
+					</span>
+				</h2>
 				<hr class="modal-separator">
 			</div>
 
@@ -94,7 +97,7 @@
 		</nav>
 	</footer>
 	<!-- MODALE -->
-	<div id="modalOverlay" class="modal-overlay" style="display: none;">
+	<div id="modalOverlay" class="modal-overlay" style="display: none">
 		<div class="modal-content">
 
 			<!-- HEADER -->
@@ -129,7 +132,7 @@
 
 					<label>Photo<span class="required">*</span></label>
 					<div class="image-preview" id="imagePreview" style="display:none;">
-						<img id="previewImg">
+
 					</div>
 					<input type="file" id="imageInput" accept="image/*">
 					<p class="error" id="imgError"></p>

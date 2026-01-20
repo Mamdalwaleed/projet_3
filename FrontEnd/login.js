@@ -14,7 +14,7 @@ form.addEventListener("submit", async (event) => {
   const password = document.querySelector("#password").value; //tu prends ce qu’il a écrit dans Mot de passe
 
   try {
-    //J’essaie d’envoyer ces infos au serveu
+    //J’essaie d’envoyer ces infos au serveur
     const response = await fetch("http://localhost:5678/api/users/login", {
       //Tu envoies au serveur;Va parler au serveur à cette adresse
       method: "POST", //Je veux ENVOYER des données au serveur

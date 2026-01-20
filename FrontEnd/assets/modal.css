@@ -1,27 +1,27 @@
 /* ================= MODALE OVERLAY ================= */
 .modal-overlay {
-  display: none;
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  display: flex;
+  display: none; /* cachée par défaut */
   align-items: center;
   justify-content: center;
 }
 
 /* ================= CONTENU MODALE ================= */
 .modal-content {
+  width: 630px;
+  height: 670px;
   background-color: #fff;
   border-radius: 10px;
-  width: 630px;
-  max-height: 90vh;
   padding: 30px;
   position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
+
 
 
 /* ================= HEADER ================= */
@@ -120,6 +120,14 @@
   color: white;
   cursor: pointer;
 }
+.openModal {
+  padding: 8px 20px;
+  border-radius: 60px;
+  border: none;
+  background-color: #1D6154;
+  color: white;
+  cursor: pointer;
+}
 
 /* ================= PAGE 2 : FORMULAIRE ================= */
 #addPage {
@@ -192,5 +200,7 @@
   font-size: 12px;
   margin-top: 4px;
 }
+
+
 
 
