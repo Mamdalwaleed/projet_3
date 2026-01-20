@@ -296,7 +296,7 @@ margin: auto;
   display: inline-flex;
   align-items: center;
   gap: 5px;                 /* espace icône / texte */
-  color: #C0B49D;           /* gris/beige */
+  color: black;           /* gris/beige */
   cursor: pointer;
   font-size: 16px;
 }
