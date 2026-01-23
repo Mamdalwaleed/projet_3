@@ -229,8 +229,8 @@ addForm.addEventListener("submit", async (e) => {
     await fetch("http://localhost:5678/api/works", {
       //appel serveur et attend la réponse
       method: "POST", //Je veux créer quelque chose
-      headers: { Authorization: `Bearer ${token}` }, //Voici ma carte d’identité
-      body: formData, //Voici le colis
+      headers: { Authorization: `Bearer ${token}` }, //Est-ce que l’utilisateur est bien connecté ?
+      body: formData, //Voici le colis,contient le titre,l'image et la catégories
     });
 
     displayWorks("all"); //Galerie mise à jour

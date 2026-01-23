@@ -298,7 +298,8 @@ margin: auto;
   gap: 5px;                 /* espace icône / texte */
   color: black;           /* gris/beige */
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
+  padding:16px 8px; 
 }
 
 .edit-link:hover {
@@ -325,9 +326,11 @@ margin: auto;
   border: none;
 }
 .edit-icon {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
   object-fit: contain;
+  filter: none;
 }
 /* Liens du menu en haut */
 nav a {
